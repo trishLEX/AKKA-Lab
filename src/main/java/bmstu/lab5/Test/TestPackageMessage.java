@@ -11,9 +11,14 @@ public class TestPackageMessage {
     private String functionName;
     private ArrayList<Test> tests;
 
+    private final String PACKAGE_ID = "packageID";
+    private final String JSSCRIPT = "jsScript";
+    private final String FUNCTION_NAME = "functionName";
+    private final String TESTS = "tests";
+
     @JsonCreator
-    public TestPackageMessage(@JsonProperty("packageID") int packageID, @JsonProperty("jsScript") String jsScript,
-                              @JsonProperty("functionName") String functionName, @JsonProperty("tests") ArrayList<Test> tests) {
+    public TestPackageMessage(@JsonProperty(PACKAGE_ID) int packageID, @JsonProperty(JSSCRIPT) String jsScript,
+                              @JsonProperty(FUNCTION_NAME) String functionName, @JsonProperty(TESTS) ArrayList<Test> tests) {
         this.packageID = packageID;
         this.jsScript = jsScript;
         this.functionName = functionName;
