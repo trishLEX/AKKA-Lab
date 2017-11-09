@@ -1,6 +1,6 @@
 package bmstu.lab5.Test;
 
-public class TestMessage {
+class TestMessage {
     int packageID;
     String jsScript;
     String functionName;

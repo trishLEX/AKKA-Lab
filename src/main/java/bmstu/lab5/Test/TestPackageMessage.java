@@ -6,15 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 
 public class TestPackageMessage {
-    private int packageID;
-    private String jsScript;
-    private String functionName;
-    private ArrayList<Test> tests;
-
     private final String PACKAGE_ID = "packageID";
     private final String JSSCRIPT = "jsScript";
     private final String FUNCTION_NAME = "functionName";
     private final String TESTS = "tests";
+
+    private int packageID;
+    private String jsScript;
+    private String functionName;
+    private ArrayList<Test> tests;
 
     @JsonCreator
     public TestPackageMessage(@JsonProperty(PACKAGE_ID) int packageID, @JsonProperty(JSSCRIPT) String jsScript,
@@ -25,19 +25,19 @@ public class TestPackageMessage {
         this.tests = tests;
     }
 
-    public int getPackageID() {
+    int getPackageID() {
         return packageID;
     }
 
-    public String getJsScript() {
+    String getJsScript() {
         return jsScript;
     }
 
-    public String getFunctionName() {
+    String getFunctionName() {
         return functionName;
     }
 
-    public ArrayList<Test> getTests() {
+    ArrayList<Test> getTests() {
         return tests;
     }
 }
