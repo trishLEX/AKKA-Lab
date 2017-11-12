@@ -1,9 +1,8 @@
 package bmstu.lab5.Test;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorSelection;
 import akka.japi.pf.ReceiveBuilder;
-
-import static bmstu.lab5.WebServer.storeActor;
 
 import bmstu.lab5.Store.StoreMessage;
 
@@ -15,12 +14,13 @@ import java.util.ArrayList;
 
 public class TestActor extends AbstractActor{
     private final String LANGUAGE = "js";
+    private ActorSelection storeActor = getContext().actorSelection("/user/storeActor");
 
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match(TestMessage.class, msg -> storeActor.tell(new StoreMessage(msg.packageID,
-                                runTest(msg.jsScript, msg.test.getTestName(), msg.test.getParams(), msg.functionName, msg.test.getExpectedResult())),
+                .match(TestMessage.class, msg -> storeActor.tell(new StoreMessage(msg.getPackageID(),
+                                runTest(msg.getJsScript(), msg.getTest().getTestName(), msg.getTest().getParams(), msg.getFunctionName(), msg.getTest().getExpectedResult())),
                 self()))
                 .build();
     }

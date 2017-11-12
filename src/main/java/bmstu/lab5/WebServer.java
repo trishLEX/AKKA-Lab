@@ -29,14 +29,14 @@ import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 public class WebServer {
-    public static ActorRef storeActor;
-    private static final String STORE_ACTOR = "storeActor";
+    private ActorRef storeActor;
+    private final String STORE_ACTOR = "storeActor";
 
-    public static ActorRef testPerformerRouter;
-    private static final String TEST_PERFORMER_ROUTER = "testPerformerRouter";
+    private ActorRef testPerformerRouter;
+    private final String TEST_PERFORMER_ROUTER = "testPerformerRouter";
 
-    private static ActorRef testPackageActor;
-    private static final String TEST_PACKAGE_ACTOR = "testPackageActor";
+    private ActorRef testPackageActor;
+    private final String TEST_PACKAGE_ACTOR = "testPackageActor";
 
     private static final String SERVER = "localhost";
     private static final int PORT = 8080;

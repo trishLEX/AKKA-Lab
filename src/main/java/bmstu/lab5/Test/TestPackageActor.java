@@ -1,11 +1,12 @@
 package bmstu.lab5.Test;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorSelection;
 import akka.japi.pf.ReceiveBuilder;
 
-import static bmstu.lab5.WebServer.testPerformerRouter;
-
 public class TestPackageActor extends AbstractActor{
+    private ActorSelection testPerformerRouter = getContext().actorSelection("/user/testPerformerRouter");
+
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
